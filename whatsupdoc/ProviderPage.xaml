@@ -3,53 +3,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="whatsupdoc.ProviderPage"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
-            ios:Page.UseSafeArea="true"
-            >
+            ios:Page.UseSafeArea="true">
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="20*"/>
-                <RowDefinition Height="40*"/>
-                <RowDefinition Height="40*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Label
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="40*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Label
                     HorizontalOptions="Center"
                     TextColor="#123e81"
                     VerticalTextAlignment="Center"
                     FontSize="35"
                     Text="&#129658; What's Up Doc?"/>
-            </Grid>
-            <Grid Grid.Row="1">
-                <StackLayout
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackLayout
                     Margin="30,0,30,0"
                     Spacing="20"
                     >
-                    <Label LineBreakMode="WordWrap" TextColor="#123e81" FontSize="30" Text="{Binding ProviderName, StringFormat='&#128100; {0:F0}'}"/>
-                    <Label TextColor="#adadad" FontSize="20" Text="{Binding ProviderNPI, StringFormat='NPI: {0:F0}'}"/>
-                    <Label FontSize="20" Text="{Binding ProviderRole, StringFormat='Role: {0:F0}'}"/>
-                    <Label FontSize="20" Text="{Binding ProviderSpecialty, StringFormat='Specialty: {0:F0}'}"/>
-                    <Label FontSize="20" Text="{Binding ProviderPhone, StringFormat='Phone: {0:F0}'}"/>
-                    <Label LineBreakMode="WordWrap" FontSize="20" Text="{Binding ProviderEmail, StringFormat='Email: {0:F0}'}"/>
-                </StackLayout>
-            </Grid>
-            <Grid Grid.Row="2">
-                <StackLayout
+                        <Label LineBreakMode="WordWrap" TextColor="#123e81" FontSize="30" Text="{Binding ProviderName, StringFormat='&#128100; {0:F0}'}"/>
+                        <Label TextColor="#adadad" FontSize="20" Text="{Binding ProviderNPI, StringFormat='NPI: {0:F0}'}"/>
+                        <Label FontSize="20" Text="{Binding ProviderRole, StringFormat='Role: {0:F0}'}"/>
+                        <Label FontSize="20" Text="{Binding ProviderSpecialty, StringFormat='Specialty: {0:F0}'}"/>
+                        <Label FontSize="20" Text="{Binding ProviderPhone, StringFormat='Phone: {0:F0}'}"/>
+                        <Label LineBreakMode="WordWrap" FontSize="20" Text="{Binding ProviderEmail, StringFormat='Email: {0:F0}'}"/>
+                    </StackLayout>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <StackLayout
                     Margin="30,0,30,0"
                     Spacing="20"
                     >
-                    <Label
+                        <Label
                         LineBreakMode="WordWrap"
                         TextColor="#2c77e8"
                         FontSize="30"
                         Text="{Binding OrganizationName, StringFormat='&#127973; {0:F0}'}"/>
-                    <Label TextColor="#adadad" FontSize="20" Text="{Binding OrganizationNPI, StringFormat='Identifier: {0:F0}'}"/>
-                    <Label FontSize="20" Text="{Binding OrganizationAddress, StringFormat='Address: {0:F0}'}"/>
-                    <Label FontSize="20" Text="{Binding OrganizationCity, StringFormat='City: {0:F0}'}"/>
-                    <Label FontSize="20" Text="{Binding OrganizationState, StringFormat='State: {0:F0}'}"/>
-                </StackLayout>
+                        <Label TextColor="#adadad" FontSize="20" Text="{Binding OrganizationNPI, StringFormat='Identifier: {0:F0}'}"/>
+                        <Label FontSize="20" Text="{Binding OrganizationAddress, StringFormat='Address: {0:F0}'}"/>
+                        <Label FontSize="20" Text="{Binding OrganizationCity, StringFormat='City: {0:F0}'}"/>
+                        <Label FontSize="20" Text="{Binding OrganizationState, StringFormat='State: {0:F0}'}"/>
+                    </StackLayout>
+                </Grid>
             </Grid>
-        </Grid>
-
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

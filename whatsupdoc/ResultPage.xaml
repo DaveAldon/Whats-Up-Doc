@@ -15,16 +15,11 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                    <ViewCell.ContextActions>
-                        <MenuItem Text="Delete"
-                                  IsDestructive="True"/>
-                    </ViewCell.ContextActions>
                         <StackLayout>
                             <Label Text="{Binding ProviderName}" Padding="0,5,0,0"/>
                             <Label Text="{Binding ProviderOrganization}" FontSize="Small" Margin="0,-5,0,0"/>
                         </StackLayout>
                 </ViewCell>
-                
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

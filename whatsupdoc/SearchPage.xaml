@@ -8,8 +8,8 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="20*"/>
-                <RowDefinition Height="70*"/>
-                <RowDefinition Height="10*"/>
+                <RowDefinition Height="65*"/>
+                <RowDefinition Height="15*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Label
@@ -47,7 +47,7 @@
                 Grid.Row="2">
                 <Label
                     LineBreakMode="WordWrap"
-                    Text="This app is brought to you in part by Team 25 for the 2020 Microsoft Hack on FHIR &#128293;"/>
+                    Text="This app is brought to you by Team 25 for the 2020 Microsoft Hack on FHIR &#128293;"/>
                 <Button
                     Text="Conference Information"
                     BorderColor="#147EFB"
