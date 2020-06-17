@@ -1,7 +1,32 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="whatsupdoc.SearchPage">
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="What's Up Doc?" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    ios:Page.UseSafeArea="true"
+    x:Class="whatsupdoc.SearchPage"
+    Title="What's Up Doc?">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="1">
+                <Picker Title="Select a Disease">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>COVID-19</x:String>
+                            <x:String>Lyme Disease</x:String>
+                            <x:String>Heart Disease</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Button Text="Search for Provider"
+                    BorderColor="#147EFB"
+                    BorderWidth="1"
+                    Clicked="Search_Button_Clicked"></Button>
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
 </ContentPage>

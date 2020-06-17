@@ -1,5 +1,32 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="whatsupdoc.ResultPage">
-    <ContentPage.Content>
-    </ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             x:Class="whatsupdoc.ResultPage">
+
+    <StackLayout>
+        <SearchBar x:Name="SearchBar"
+            Placeholder="Search items..."
+            TextChanged="SearchBar_TextChanged"/>
+        <ListView x:Name="listView"
+            Margin="10,0,0,0"
+            ItemSelected="Clicked_Selected_Provider"
+            IsPullToRefreshEnabled="False">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Delete"
+                                  
+                                  IsDestructive="True"/>
+                    </ViewCell.ContextActions>
+                        <StackLayout>
+                            <Label Text="{Binding Name}" Padding="0,5,0,0"/>
+                            <Label Text="{Binding Date}" FontSize="Small" Margin="0,-5,0,0"/>
+                        </StackLayout>
+                </ViewCell>
+                
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

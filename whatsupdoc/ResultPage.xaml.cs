@@ -11,5 +11,13 @@ namespace whatsupdoc
         {
             InitializeComponent();
         }
+
+        void SearchBar_TextChanged(System.Object sender, Xamarin.Forms.TextChangedEventArgs e)
+        {
+        }
+
+        void Clicked_Selected_Provider(System.Object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {
+        }
     }
 }

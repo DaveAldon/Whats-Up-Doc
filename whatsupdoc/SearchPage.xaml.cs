@@ -8,14 +8,25 @@ using Xamarin.Forms;
 
 namespace whatsupdoc
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class SearchPage : ContentPage
     {
         public SearchPage()
         {
             InitializeComponent();
+        }
+
+        void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
+
+        async void Search_Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new ResultPage
+            {
+                // Updates the proper context for the next view
+                BindingContext = this.BindingContext
+            });
         }
     }
 }
