@@ -43,6 +43,7 @@
                         TextColor="#2c77e8"
                         FontSize="30"
                         Text="{Binding OrganizationName, StringFormat='&#127973; {0:F0}'}"/>
+                    <Label TextColor="#adadad" FontSize="20" Text="{Binding OrganizationNPI, StringFormat='Identifier: {0:F0}'}"/>
                     <Label FontSize="20" Text="{Binding OrganizationAddress, StringFormat='Address: {0:F0}'}"/>
                     <Label FontSize="20" Text="{Binding OrganizationCity, StringFormat='City: {0:F0}'}"/>
                     <Label FontSize="20" Text="{Binding OrganizationState, StringFormat='State: {0:F0}'}"/>

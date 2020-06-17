@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
              x:Class="whatsupdoc.ResultPage">
-
     <StackLayout>
         <SearchBar x:Name="SearchBar"
             Placeholder="Search items..."
@@ -10,14 +10,13 @@
         <ListView x:Name="listView"
             Margin="10,0,0,0"
             ItemSelected="Clicked_Selected_Provider"
-            IsPullToRefreshEnabled="False"
+            IsPullToRefreshEnabled="True"
             ItemsSource="{Binding Providers}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                     <ViewCell.ContextActions>
                         <MenuItem Text="Delete"
-                                  
                                   IsDestructive="True"/>
                     </ViewCell.ContextActions>
                         <StackLayout>

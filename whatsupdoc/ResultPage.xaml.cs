@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -11,16 +10,33 @@ namespace whatsupdoc
     {
         // List of provider objects for the listview
         IList<Provider> Providers = new List<Provider>();
+        // Specialty code populated from search page PushAsync
         public string code = "";
 
         public ResultPage()
         {
             InitializeComponent();
+
+            // Pull to refresh list command
+            listView.RefreshCommand = new Command(() => {   
+                SearchForProviders();
+                listView.IsRefreshing = false;
+            });
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            // If the providers list already has data, we don't want to run the query again without user input
+            if (!Providers.Any())
+            {
+                SearchForProviders();
+            }
+        }
+
+        void SearchForProviders()
+        {
+            listView.ItemsSource = null;
             Providers = new List<Provider>();
 
             var results = Utils.GetPractitionerRolesAPI(code);
@@ -31,19 +47,19 @@ namespace whatsupdoc
             // Iter through the providers
             foreach (var entry in entries)
             {
+                // TODO: Put json parse handling in a method to make exceptions cleaner and less redundant
                 try
                 {
+                    string pName, pOrganization, pOrganizationID = "", pID = "";
                     // Parsing out certain fields
-                    var pName = entry["resource"]["practitioner"]["display"].ToString();
+                    try { pName = entry["resource"]["practitioner"]["display"].ToString(); } catch { pName = "Unknown Name"; }
                     // Names have numbers in the sample data. This makes them prettier
                     pName = Regex.Replace(pName, @"[\d-]", string.Empty);
 
-                    var pOrganization = entry["resource"]["organization"]["display"].ToString();
-                    var pOrganizationID = entry["resource"]["organization"]["reference"].ToString();
-
-                    var pID = entry["resource"]["practitioner"]["reference"].ToString();
-
-                    //var pSpecialty = entry["resource"]["specialty"][1]["coding"][0]["display"].ToString();
+                    // Parse out "header" information for the list
+                    try { pOrganization = entry["resource"]["organization"]["display"].ToString(); } catch { pOrganization = "Unknown Organization"; }
+                    try { pOrganizationID = entry["resource"]["organization"]["reference"].ToString(); } catch { }
+                    try { pID = entry["resource"]["practitioner"]["reference"].ToString(); } catch { }
 
                     // Add them to a new provider object
                     Providers.Add(new Provider
@@ -60,17 +76,10 @@ namespace whatsupdoc
                 }
             }
 
+            // Populate the listview
             listView.ItemsSource = Providers
                 .OrderBy(d => d.ProviderName)
                 .ToList();
-
-            // Troubleshooting that displays all of the provider objects
-            /*
-            foreach(var x in Providers)
-            {
-                await DisplayAlert("Alert", x.ProviderName + " " + x.ProviderOrganization + " " + x.ProviderSpecialty, "OK");
-            }
-            */
         }
 
         // Search bar filtering
@@ -93,13 +102,21 @@ namespace whatsupdoc
             if (e.SelectedItem != null)
             {
                 var providerContext = e.SelectedItem as Provider;
-                await Navigation.PushAsync(new ProviderPage
+                
+                try
                 {
-                    //BindingContext = providerContext,
-                    ProviderContext = providerContext,
-                    ProviderResult = Utils.GetCustomAPI(providerContext.ProviderID),
-                    OrganizationResult = Utils.GetCustomAPI(providerContext.ProviderOrganizationID)
-                });
+                    await Navigation.PushAsync(new ProviderPage
+                    {
+                        //BindingContext = providerContext,
+                        ProviderContext = providerContext,
+                        ProviderResult = Utils.GetCustomAPI(providerContext.ProviderID),
+                        OrganizationResult = Utils.GetCustomAPI(providerContext.ProviderOrganizationID)
+                    });
+                }
+                catch
+                {
+                    await DisplayAlert("Alert", "Registry is missing information for this Provider", "OK");
+                }
             }
         }
     }

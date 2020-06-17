@@ -24,12 +24,12 @@ namespace whatsupdoc
             try { ProviderContext.ProviderPhone = ProviderResult["telecom"][0]["value"].ToString(); } catch { }
             try { ProviderContext.ProviderEmail = ProviderResult["telecom"][1]["value"].ToString(); } catch { }
             try { ProviderContext.OrganizationName = OrganizationResult["name"].ToString(); } catch { }
+            try { ProviderContext.OrganizationNPI = OrganizationResult["identifier"][0]["value"].ToString(); } catch { }
             try { ProviderContext.OrganizationAddress = OrganizationResult["address"][0]["line"][0].ToString(); } catch { }
             try { ProviderContext.OrganizationCity = OrganizationResult["address"][0]["city"].ToString(); } catch { }
             try { ProviderContext.OrganizationState = OrganizationResult["address"][0]["state"].ToString(); } catch { }
 
-            //await DisplayAlert("Alert", ProviderContext.OrganizationAddress.ToString(), "OK");
-
+            // Update the binding
             BindingContext = ProviderContext;
         }
     }
