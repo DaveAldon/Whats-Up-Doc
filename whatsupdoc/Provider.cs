@@ -15,6 +15,8 @@ namespace whatsupdoc
 
         public string OrganizationName { get; set; }
         public string OrganizationAddress { get; set; }
+        public string OrganizationCity { get; set; }
+        public string OrganizationState { get; set; }
         public string OrganizationCLIA { get; set; }
 
         public override string ToString()

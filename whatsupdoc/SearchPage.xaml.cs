@@ -27,5 +27,10 @@ namespace whatsupdoc
             });
             
         }
+
+        void Changed_Disease_Selection(System.Object sender, System.EventArgs e)
+        {
+            Search_Button.IsVisible = true;
+        }
     }
 }
