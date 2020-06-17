@@ -11,6 +11,7 @@ namespace whatsupdoc
     {
         // List of provider objects for the listview
         IList<Provider> Providers = new List<Provider>();
+        public string code = "";
 
         public ResultPage()
         {
@@ -22,8 +23,7 @@ namespace whatsupdoc
             base.OnAppearing();
             Providers = new List<Provider>();
 
-            var o = Utils.GetFHIRResource();
-            JObject results = JObject.Parse(o);
+            var results = Utils.GetPractitionerRolesAPI(code);
 
             // Parent structure
             var entries = results["entry"];
@@ -39,6 +39,10 @@ namespace whatsupdoc
                     pName = Regex.Replace(pName, @"[\d-]", string.Empty);
 
                     var pOrganization = entry["resource"]["organization"]["display"].ToString();
+                    var pOrganizationID = entry["resource"]["organization"]["reference"].ToString();
+
+                    var pID = entry["resource"]["practitioner"]["reference"].ToString();
+
                     //var pSpecialty = entry["resource"]["specialty"][1]["coding"][0]["display"].ToString();
 
                     // Add them to a new provider object
@@ -46,7 +50,8 @@ namespace whatsupdoc
                     {
                         ProviderName = pName,
                         ProviderOrganization = pOrganization,
-                        //ProviderSpecialty = pSpecialty
+                        ProviderOrganizationID = pOrganizationID,
+                        ProviderID = pID
                     });
                 }
                 catch (Exception exc)
@@ -87,9 +92,13 @@ namespace whatsupdoc
         {
             if (e.SelectedItem != null)
             {
+                var providerContext = e.SelectedItem as Provider;
                 await Navigation.PushAsync(new ProviderPage
                 {
-                    BindingContext = this.BindingContext
+                    //BindingContext = providerContext,
+                    ProviderContext = providerContext,
+                    ProviderResult = Utils.GetCustomAPI(providerContext.ProviderID),
+                    OrganizationResult = Utils.GetCustomAPI(providerContext.ProviderOrganizationID)
                 });
             }
         }

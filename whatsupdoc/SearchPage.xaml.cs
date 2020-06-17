@@ -22,7 +22,8 @@ namespace whatsupdoc
             await Navigation.PushAsync(new ResultPage
             {
                 // Updates the proper context for the next view
-                BindingContext = this.BindingContext
+                BindingContext = this.BindingContext,
+                code = "208D00000X"
             });
             
         }

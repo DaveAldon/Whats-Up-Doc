@@ -1,5 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="whatsupdoc.ProviderPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="whatsupdoc.ProviderPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+            ios:Page.UseSafeArea="true"
+            >
     <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <!--
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                -->
+            </Grid.RowDefinitions>
+
+            <StackLayout>
+                <Label Text="{Binding ProviderName, StringFormat='{0:F0}'}"/>
+                <Label Text="{Binding ProviderNPI, StringFormat='NPI: {0:F0}'}"/>
+                <Label Text="{Binding ProviderRole, StringFormat='Role: {0:F0}'}"/>
+                <Label Text="{Binding ProviderSpecialty, StringFormat='Specialty: {0:F0}'}"/>
+                <Label Text="{Binding ProviderPhone, StringFormat='Phone: {0:F0}'}"/>
+                <Label Text="{Binding ProviderEmail, StringFormat='Email: {0:F0}'}"/>
+
+                <Label Text="{Binding OrganizationName, StringFormat='{0:F0}'}"/>
+                <Label Text="{Binding OrganizationAddress, StringFormat='Address: {0:F0}'}"/>
+            </StackLayout>
+        </Grid>
+
     </ContentPage.Content>
 </ContentPage>
