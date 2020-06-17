@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{127A43ED-D55C-4091-8D7A-F8BB3F00C83C}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="whatsupdoc/ResultPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="whatsupdoc/Provider.cs">
     <Files>
-      <File FileName="whatsupdoc/SearchPage.xaml.cs" Line="23" Column="83" />
-      <File FileName="whatsupdoc/SearchPage.xaml" />
-      <File FileName="whatsupdoc/ResultPage.xaml" />
+      <File FileName="whatsupdoc/SearchPage.xaml.cs" Line="60" Column="14" />
+      <File FileName="whatsupdoc/SearchPage.xaml" Line="27" Column="21" />
+      <File FileName="whatsupdoc/ResultPage.xaml" Line="19" Column="35" />
       <File FileName="whatsupdoc/ResultPage.xaml.cs" Line="17" Column="10" />
+      <File FileName="whatsupdoc/Provider.cs" Line="8" Column="43" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,9 +13,8 @@
           <Node name="whatsupdoc" expanded="True">
             <Node name="whatsupdoc" expanded="True">
               <Node name="App.xaml" expanded="True" />
-              <Node name="ResultPage.xaml" expanded="True">
-                <Node name="ResultPage.xaml.cs" selected="True" />
-              </Node>
+              <Node name="Provider.cs" selected="True" />
+              <Node name="ResultPage.xaml" expanded="True" />
               <Node name="SearchPage.xaml" expanded="True" />
             </Node>
             <Node name="whatsupdoc.iOS" expanded="True" />
