@@ -17,3 +17,8 @@ A mobile app that lets you search for providers in your juristiction based on a 
 
 - Latest installation of Visual Studio 2019 with Xamarin
 - iOS development requires Mac OS and the latest XCode
+
+## Background
+
+- This was created as part of the June 2020 HL7 FHIR DevDays Microsoft Hackathon
+- Slides from the presentation available [here](https://docs.google.com/presentation/d/1X6qeCuRigvTkzUoinb5pg-8AWY9c05240loeVSkdVFo/edit?usp=sharing)
