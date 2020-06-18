@@ -19,8 +19,6 @@ namespace whatsupdoc
             // TODO: Add each field to a single exception handling method to avoid the try catch repitition
 
             try { ProviderContext.ProviderNPI =  ProviderResult["identifier"][0]["value"].ToString(); } catch { }
-            try { ProviderContext.ProviderRole = ProviderResult["identifier"][0]["value"].ToString(); } catch { }
-            try { ProviderContext.ProviderSpecialty = ProviderResult["identifier"][0]["value"].ToString(); } catch { }
             try { ProviderContext.ProviderPhone = ProviderResult["telecom"][0]["value"].ToString(); } catch { }
             try { ProviderContext.ProviderEmail = ProviderResult["telecom"][1]["value"].ToString(); } catch { }
             try { ProviderContext.OrganizationName = OrganizationResult["name"].ToString(); } catch { }

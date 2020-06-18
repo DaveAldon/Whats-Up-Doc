@@ -1,7 +1,11 @@
 ﻿<Properties StartupConfiguration="{127A43ED-D55C-4091-8D7A-F8BB3F00C83C}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="whatsupdoc.iOS/Info.plist">
+  <MonoDevelop.Ide.Workbench ActiveDocument="whatsupdoc/ProviderPage.xaml">
     <Files>
       <File FileName="whatsupdoc.iOS/Info.plist" />
+      <File FileName="whatsupdoc/ProviderPage.xaml.cs" Line="21" Column="114" />
+      <File FileName="whatsupdoc/ResultPage.xaml.cs" Line="75" Column="37" />
+      <File FileName="whatsupdoc/Provider.cs" Line="14" Column="59" />
+      <File FileName="whatsupdoc/ProviderPage.xaml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -9,21 +13,22 @@
           <Node name="whatsupdoc" expanded="True">
             <Node name="whatsupdoc" expanded="True">
               <Node name="App.xaml" expanded="True" />
-              <Node name="ProviderPage.xaml" expanded="True" />
+              <Node name="ProviderPage.xaml" expanded="True" selected="True" />
               <Node name="ResultPage.xaml" expanded="True" />
               <Node name="SearchPage.xaml" expanded="True" />
             </Node>
             <Node name="whatsupdoc.iOS" expanded="True">
               <Node name="Resources" expanded="True" />
-              <Node name="Info.plist" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../../whatsupdoc/ProviderPage.xaml.cs" line="21" column="49" endLine="21" endColumn="63" offsetX="-1" offsetY="-1" expression="ProviderResult" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.whatsupdoc.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.4971A3FA-5D10-4D03-A00D-B2FA0476B7D7" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

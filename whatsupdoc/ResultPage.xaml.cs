@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace whatsupdoc
 {
@@ -50,7 +51,7 @@ namespace whatsupdoc
                 // TODO: Put json parse handling in a method to make exceptions cleaner and less redundant
                 try
                 {
-                    string pName, pOrganization, pOrganizationID = "", pID = "";
+                    string pName, pOrganization, pOrganizationID = "", pID = "", pRole = "", pSpecialty = "";
                     // Parsing out certain fields
                     try { pName = entry["resource"]["practitioner"]["display"].ToString(); } catch { pName = "Unknown Name"; }
                     // Names have numbers in the sample data. This makes them prettier
@@ -61,13 +62,19 @@ namespace whatsupdoc
                     try { pOrganizationID = entry["resource"]["organization"]["reference"].ToString(); } catch { }
                     try { pID = entry["resource"]["practitioner"]["reference"].ToString(); } catch { }
 
+                    // Special data that is only in PractitionerRole
+                    try { pRole = entry["resource"]["code"][0]["coding"][0]["code"].ToString(); } catch { }
+                    try { pSpecialty = entry["resource"]["specialty"][0]["coding"][0]["display"].ToString(); } catch { }
+
                     // Add them to a new provider object
                     Providers.Add(new Provider
                     {
                         ProviderName = pName,
                         ProviderOrganization = pOrganization,
                         ProviderOrganizationID = pOrganizationID,
-                        ProviderID = pID
+                        ProviderID = pID,
+                        ProviderRole = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(pRole.ToLower()),
+                        ProviderSpecialty = pSpecialty
                     });
                 }
                 catch (Exception exc)
