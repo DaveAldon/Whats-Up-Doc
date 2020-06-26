@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace whatsupdoc
@@ -30,7 +29,6 @@ namespace whatsupdoc
                 BindingContext = this.BindingContext,
                 code = Utils.GetDiseaseMapping(DiseasePicker.SelectedItem.ToString())
             });
-            
         }
 
         // If the user selects something, let them search
@@ -39,10 +37,10 @@ namespace whatsupdoc
             Search_Button.IsVisible = true;
         }
 
-        // Shows conference info in an embedded browser
-        async void Conference_Link(System.Object sender, System.EventArgs e)
+        async void Settings_Button_Clicked(System.Object sender, System.EventArgs e)
         {
-            await Browser.OpenAsync(Utils.ConferenceLink, BrowserLaunchMode.SystemPreferred);
+            // View the settings page
+            await Navigation.PushAsync(new SettingsPage { });
         }
     }
 }

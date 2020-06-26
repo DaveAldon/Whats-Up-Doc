@@ -9,6 +9,7 @@ namespace whatsupdoc
     public static class Utils
     {
         public static string FHIR_Resource = "http://hapi.fhir.org/baseR4/";
+        public static string Token = "";
         public static string ProviderQuery = "&_include=PractitionerRole:organization&_include=PractitionerRole:location";
         public static string PractitionerRoleResource = "PractitionerRole?specialty=";
         public static string ConferenceLink = "https://www.devdays.com/us/wp-content/uploads/sites/5/2020/06/PROGRAM_US_VIRTUAL_EDITION_2020_3.pdf";
@@ -30,6 +31,10 @@ namespace whatsupdoc
         {
             JObject returnData = null;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(code);
+
+            // Token parameter if the request needs authorization
+            request.Headers.Add("Authorization", "Bearer " + Token);
+
             request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
             try
             {
@@ -41,7 +46,9 @@ namespace whatsupdoc
                     returnData = JObject.Parse(reader.ReadToEnd());
                 }
             }
-            catch { }
+            catch {
+                return null;
+            }
             return returnData;
         }
 

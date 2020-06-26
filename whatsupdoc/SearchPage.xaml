@@ -4,12 +4,17 @@
     ios:Page.UseSafeArea="true"
     x:Class="whatsupdoc.SearchPage"
     Title="What's Up Doc?">
+    <ContentPage.ToolbarItems> 
+        <ToolbarItem Text="Settings" Clicked="Settings_Button_Clicked"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <Grid>
+        <Grid
+            Margin="10,0,10,0"
+            >
             <Grid.RowDefinitions>
                 <RowDefinition Height="20*"/>
-                <RowDefinition Height="65*"/>
-                <RowDefinition Height="15*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="45*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Label
@@ -42,19 +47,10 @@
                     FontSize="30"
                     Clicked="Search_Button_Clicked"></Button>
             </StackLayout>
-            <StackLayout
-                Margin="30,0,35,0"
-                Grid.Row="2">
+            <StackLayout Grid.Row="2">
                 <Label
                     LineBreakMode="WordWrap"
-                    Text="This app is brought to you by Team 25 for the 2020 Microsoft Hack on FHIR &#128293;"/>
-                <Button
-                    Text="Conference Information"
-                    BorderColor="#147EFB"
-                    BorderWidth="1"
-                    HeightRequest="30"
-                    FontSize="15"
-                    Clicked="Conference_Link"></Button>
+                    Text="Search for a list of providers that specialize in a communicable, or non-communicable, disease by selecting the disease in the drop down and searching. You can also add your own FHIR compatible Provider Registry in the settings."/>
             </StackLayout>
         </Grid>
 

@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using Newtonsoft.Json.Linq;
 
 namespace whatsupdoc
 {
@@ -35,15 +36,25 @@ namespace whatsupdoc
             }
         }
 
-        void SearchForProviders()
+        async void SearchForProviders()
         {
             listView.ItemsSource = null;
             Providers = new List<Provider>();
 
             var results = Utils.GetPractitionerRolesAPI(code);
 
+            JToken entries = String.Empty;
+
             // Parent structure
-            var entries = results["entry"];
+            try
+            {
+                entries = results["entry"];
+            }
+            catch
+            {
+                await DisplayAlert("Alert", "Error searching registry. Is your token or URL valid in the settings?", "OK");
+                await Navigation.PopAsync();
+            }
 
             // Iter through the providers
             foreach (var entry in entries)

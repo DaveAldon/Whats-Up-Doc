@@ -1,0 +1,53 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="whatsupdoc.SettingsPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0"
+                Margin="10,20,10,0">
+                <Label Text="FHIR Resource"></Label>
+                <Entry
+                x:Name="FHIRResource"
+                Text="http://hapi.fhir.org/baseR4/"></Entry>
+                <Label Text="Token (If required)"></Label>
+                <Entry Text=""
+                FontSize="30"
+                x:Name="FHIRToken"></Entry>
+                <Button Text="Save"
+                    BorderColor="#147EFB"
+                    BorderWidth="1"
+                    HeightRequest="70"
+                    FontSize="30"
+                    Clicked="Save_Button_Clicked">
+                </Button>
+
+            </StackLayout>
+            <StackLayout Grid.Row="1"
+                Margin="10,0,10,0">
+                <Button Text="Reset settings"
+                    BorderColor="#147EFB"
+                    BorderWidth="1"
+                    HeightRequest="70"
+                    FontSize="20"
+                    Clicked="Default_Button_Clicked">
+                </Button>
+                <Label
+                    LineBreakMode="WordWrap"
+                    Text="This app is brought to you by Team 25 for the 2020 Microsoft Hack on FHIR &#128293;"/>
+                <Button
+                    Text="Conference Information"
+                    BorderColor="#147EFB"
+                    BorderWidth="1"
+                    HeightRequest="30"
+                    FontSize="15"
+                    Clicked="Conference_Link"></Button>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
