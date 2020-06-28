@@ -2,27 +2,32 @@
 using System.Net;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using Xamarin.Essentials;
 
 namespace whatsupdoc
 {
     // Class to hold static api logic and configs
     public static class Utils
     {
-        public static string FHIR_Resource = "http://hapi.fhir.org/baseR4/";
-        public static string Token = "";
-        public static string ProviderQuery = "&_include=PractitionerRole:organization&_include=PractitionerRole:location";
-        public static string PractitionerRoleResource = "PractitionerRole?specialty=";
-        public static string ConferenceLink = "https://www.devdays.com/us/wp-content/uploads/sites/5/2020/06/PROGRAM_US_VIRTUAL_EDITION_2020_3.pdf";
+        private static string FHIR_Resource = GetPreference("FHIR_Resource", GetPreference("FHIR_Resource_Default"));
+        private static string Token = GetPreference("Token");
+        private static string ProviderQuery = GetPreference("ProviderQuery");
+        private static string PractitionerRoleResource = GetPreference("PractitionerRoleResource");
+
+        private static string GetPreference(string key, string defaultReturn = "")
+        {
+            return Preferences.Get(key, defaultReturn);
+        }
 
         public static JObject GetPractitionerRolesAPI(string code)
         {
-            var uri = FHIR_Resource + PractitionerRoleResource + code + ProviderQuery;
+            var uri = $"{FHIR_Resource}{PractitionerRoleResource}{code}{ProviderQuery}";
             return GetFHIRResource(uri);
         }
 
         public static JObject GetCustomAPI(string ID)
         {
-            var uri = FHIR_Resource + ID;
+            var uri = $"{FHIR_Resource}{ID}";
             return GetFHIRResource(uri);
         }
 
@@ -33,7 +38,7 @@ namespace whatsupdoc
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(code);
 
             // Token parameter if the request needs authorization
-            request.Headers.Add("Authorization", "Bearer " + Token);
+            request.Headers.Add("Authorization", $"Bearer {Token}");
 
             request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
             try
@@ -66,9 +71,8 @@ namespace whatsupdoc
         }
 
         // Mapping definitions with codes as value pairs
-        public static Dictionary<string, string> DiseaseMapping = new Dictionary<string, string>()
+        private static Dictionary<string, string> DiseaseMapping = new Dictionary<string, string>()
         {
-            { "COVID-19", "208D00000X" },
             { "Coronary Artery Disease", "207RC0000X" },
             { "Hypertension", "207RC0000X" },
             { "Lyme Disease", "208D00000X" },

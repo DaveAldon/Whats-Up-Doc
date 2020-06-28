@@ -1,12 +1,10 @@
 ﻿<Properties StartupConfiguration="{127A43ED-D55C-4091-8D7A-F8BB3F00C83C}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="whatsupdoc/Utils.cs">
     <Files>
-      <File FileName="whatsupdoc.iOS/Main.cs" Line="1" Column="1" IsPinned="True" />
-      <File FileName="whatsupdoc/SettingsPage.xaml" Line="15" Column="23" />
-      <File FileName="whatsupdoc/Utils.cs" Line="11" Column="46" />
-      <File FileName="whatsupdoc/SearchPage.xaml" Line="17" Column="41" />
-      <File FileName="whatsupdoc/SearchPage.xaml.cs" Line="1" Column="29" />
-      <File FileName="whatsupdoc/SettingsPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="whatsupdoc/SearchPage.xaml.cs" Line="21" Column="1" />
+      <File FileName="whatsupdoc/App.xaml.cs" Line="15" Column="35" />
+      <File FileName="whatsupdoc/SettingsPage.xaml.cs" Line="14" Column="35" />
+      <File FileName="whatsupdoc/Utils.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,10 +16,10 @@
               <Node name="ResultPage.xaml" expanded="True" />
               <Node name="SearchPage.xaml" expanded="True" />
               <Node name="SettingsPage.xaml" expanded="True" />
+              <Node name="Utils.cs" selected="True" />
             </Node>
             <Node name="whatsupdoc.iOS" expanded="True">
               <Node name="Resources" expanded="True" />
-              <Node name="Main.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -31,8 +29,8 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="../../../whatsupdoc/ProviderPage.xaml.cs" line="21" column="49" endLine="21" endColumn="63" offsetX="-1" offsetY="-1" expression="ProviderResult" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" />
-  <MonoDevelop.Ide.ItemProperties.whatsupdoc.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.7e2bb371f5b9e95178aff6dd9596428a32256719" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.whatsupdoc.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.17F8448A-A68B-4EF4-93B2-FDD41B817F14" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

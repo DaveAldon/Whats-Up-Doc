@@ -125,7 +125,6 @@ namespace whatsupdoc
                 {
                     await Navigation.PushAsync(new ProviderPage
                     {
-                        //BindingContext = providerContext,
                         ProviderContext = providerContext,
                         ProviderResult = Utils.GetCustomAPI(providerContext.ProviderID),
                         OrganizationResult = Utils.GetCustomAPI(providerContext.ProviderOrganizationID)

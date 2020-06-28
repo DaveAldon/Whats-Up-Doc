@@ -14,10 +14,9 @@
                 <Label Text="FHIR Resource"></Label>
                 <Entry
                 x:Name="FHIRResource"
-                Text="http://hapi.fhir.org/baseR4/"></Entry>
+                    Text="{Binding FHIRResourceValue}"></Entry>
                 <Label Text="Token (If required)"></Label>
-                <Entry Text=""
-                FontSize="30"
+                <Entry Text="{Binding FHIRTokenValue}"
                 x:Name="FHIRToken"></Entry>
                 <Button Text="Save"
                     BorderColor="#147EFB"
