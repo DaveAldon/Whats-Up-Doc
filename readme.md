@@ -1,3 +1,5 @@
+### NOTE: This app has been rewritten in React Native and is being maintained here: https://github.com/DaveAldon/Whats-Up-Doc-Mobile
+
 # What's Up Doc?
 
 [![Gitter](https://img.shields.io/badge/iOS%2013.5-Working!-brightgreen)](https://github.com/DaveAldon/HL7-FHIR-DevDays-Microsoft-Hackathon)
